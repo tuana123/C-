@@ -7,22 +7,54 @@ char player1[MAX_NAME_LENGTH], player2[MAX_NAME_LENGTH];
 
 int CheckCloumn()
 {
-
+	for (int i = 0; i<n; i++)
+	{
+		int count = 0;
+		for (int j = 0; j<n - 1; j++)
+		{
+			if (m[j][i] == m[j + 1][i] && m[j][i] != 0)
+				count++;
+		}
+		if (count == n - 1)
+			return 1;
+	}
+	return 0;
 }
 
 int CheckRow()
 {
-
+	for (int i = 0; i<n; i++)
+	{
+		int count = 0;
+		for (int j = 0; j<n - 1; j++)
+		{
+			if (m[i][j] == m[i][j + 1] && m[i][j] != 0)
+				count++;
+		}
+		if (count == n - 1)
+			return 1;
+	}
+	return 0;
 }
 
 int CheckDiagonal1()
 {
-
+	for (int i = 0; i<n - 1; i++)
+	{
+		if (m[i][i] != m[i + 1][i + 1] || m[i][i] == 0)
+			return 0;
+	}
+	return 1;
 }
 
 int CheckDiagonal2()
 {
-
+	for (int i = 0; i<n - 1; i++)
+	{
+		if (m[i][n - 1 - i] != m[i + 1][n - 1 - i + 1] || m[i][n - 1 - i] == 0)
+			return 0;
+	}
+	return 1;
 }
 
 int CheckDraw()
@@ -46,7 +78,6 @@ int CheckPlayer(int a, int b)
 	{
 		return 1;
 	}
-
 	return 0;
 }
 
