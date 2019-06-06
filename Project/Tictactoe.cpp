@@ -5,19 +5,64 @@ using namespace std;
 int win = 0, m[3][3];
 char player1[MAX_NAME_LENGTH], player2[MAX_NAME_LENGTH];
 
-int CheckDraw()
+int CheckCloumn()
 {
 
+}
+
+int CheckRow()
+{
+
+}
+
+int CheckDiagonal1()
+{
+
+}
+
+int CheckDiagonal2()
+{
+
+}
+
+int CheckDraw()
+{
+	for (int j = 0; j<n; j++)
+	{
+		for (int k = 0; k<n; k++)
+		{
+			if (m[j][k] == 0)
+				return 0;
+		}
+	}
+	return 1;
 }
 
 int CheckPlayer(int a, int b)
 {
+	int i = a / 10, j = a % 10;
+	m[i][j] = b;
+	if (CheckCloumn() == 1 || CheckRow() == 1 || CheckDiagonal1() == 1 || CheckDiagonal2() == 1)
+	{
+		return 1;
+	}
 
+	return 0;
 }
 
 void PrintArray()
 {
+	for (int i = 0; i<n; i++)
+	{
+		cout << i << "| ";
+		for (int j = 0; j<n; j++)
+		{
+			cout << m[i][j];
+			cout << " | ";
+		}
+		cout << endl;
 
+	}
 }
 
 void Play()
