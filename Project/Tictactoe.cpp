@@ -51,7 +51,7 @@ int CheckDiagonal2()
 {
 	for (int i = 0; i<n - 1; i++)
 	{
-		if (m[i][n - 1 - i] != m[i + 1][n - 1 - i + 1] || m[i][n - 1 - i] == 0)
+		if (m[i][n - 1 - i] != m[i + 1][n - 1 - i - 1] || m[i][n - 1 - i] == 0)
 			return 0;
 	}
 	return 1;
@@ -83,12 +83,18 @@ int CheckPlayer(int a, int b)
 
 void PrintArray()
 {
+	cout << "   " << 0 << "   " << 1 << "   " << 2 << endl;
 	for (int i = 0; i<n; i++)
 	{
 		cout << i << "| ";
 		for (int j = 0; j<n; j++)
 		{
-			cout << m[i][j];
+			//			cout << m[i][j];
+			if (m[i][j] == 1)
+				cout << "X";
+			else if (m[i][j] == 2)
+				cout << "O";
+			else cout << " ";
 			cout << " | ";
 		}
 		cout << endl;
