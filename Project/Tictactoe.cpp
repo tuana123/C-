@@ -108,7 +108,19 @@ void Play()
 	{
 		int a, j = 0;
 		cout << "Your Turn " << player1 << " " << j << ": ";
-		cin >> a;
+		turn1:cin >> a;
+		if (a / 10 >= n || a % 10 >= n)
+		{
+			cout << "Out of Control" << endl;
+			cout << "Please Write Again";
+			goto turn1;
+		}
+		else if (m[a / 10][a % 10] != 0)
+		{
+			cout << "Duplication" << endl;
+			cout << "Please Write Again";
+			goto turn1;
+		}
 		win = CheckPlayer(a, 1);
 		PrintArray();
 		if (win == 1)
@@ -122,7 +134,19 @@ void Play()
 			break;
 		}
 		cout << "Your Turn " << player2 << " " << j << ": ";
-		cin >> a;
+		turn2: cin >> a;
+		if (a / 10 >= n || a % 10 >= n)
+		{
+			cout << "Out of Control" << endl;
+			cout << "Please Write Again";
+			goto turn2;
+		}
+		else if (m[a / 10][a % 10] != 0)
+		{
+			cout << "Duplication" << endl;
+			cout << "Please Write Again";
+			goto turn2;
+		}
 		win = CheckPlayer(a, 2);
 		PrintArray();
 		if (win == 1)
