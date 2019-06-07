@@ -1,6 +1,8 @@
 #include <iostream>
+#include <cctype>
 #define n 3
 #define MAX_NAME_LENGTH     50
+
 using namespace std;
 int win = 0, m[3][3];
 char player1[MAX_NAME_LENGTH], player2[MAX_NAME_LENGTH];
@@ -108,7 +110,7 @@ void Play()
 	{
 		int a, j = 0;
 		cout << "Your Turn " << player1 << " " << j << ": ";
-		turn1:cin >> a;
+	turn1: cin >> a;
 		if (a / 10 >= n || a % 10 >= n)
 		{
 			cout << "Out of Control!" << endl;
@@ -170,6 +172,7 @@ int main()
 	cout << "SELECT YOUR MODE (1 - PLAY GAME, OTHERS - EXIT GAME):" << endl;
 	int i;
 	cin >> i;
+	cin.ignore();
 	if (i == 1)
 	{
 		cout << "Enter Name Player 1: ";
