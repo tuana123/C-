@@ -111,14 +111,14 @@ void Play()
 		turn1:cin >> a;
 		if (a / 10 >= n || a % 10 >= n)
 		{
-			cout << "Out of Control" << endl;
-			cout << "Please Write Again";
+			cout << "Out of Control!" << endl;
+			cout << "Please Write Again: ";
 			goto turn1;
 		}
 		else if (m[a / 10][a % 10] != 0)
 		{
-			cout << "Duplication" << endl;
-			cout << "Please Write Again";
+			cout << "Duplication!" << endl;
+			cout << "Please Write Again: ";
 			goto turn1;
 		}
 		win = CheckPlayer(a, 1);
@@ -143,8 +143,8 @@ void Play()
 		}
 		else if (m[a / 10][a % 10] != 0)
 		{
-			cout << "Duplication" << endl;
-			cout << "Please Write Again";
+			cout << "Duplication!!" << endl;
+			cout << "Please Write Again: ";
 			goto turn2;
 		}
 		win = CheckPlayer(a, 2);
