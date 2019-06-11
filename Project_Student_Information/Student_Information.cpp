@@ -63,6 +63,7 @@ int Check_ID(int id,int size)
 
 void Input_Student()
 {
+	system("cls");
 	int id_student;
 	int number;
 	cout << "--------Input Student--------" << endl;
@@ -106,7 +107,13 @@ void Input_Student()
 
 void Display()
 {
-
+	system("cls");
+	cout << " ID\t" << "Name\t\t\t" << "Score" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << " " << (p + i)->id << "\t" << (p + i)->name << "\t\t\t" << (p + i)->score << endl;
+	}
+	Menu();
 }
 
 void SaveToFile()
@@ -121,7 +128,7 @@ void LoadFromFile()
 
 int main()
 {
-		Menu();
+	Menu();
 	
 	return 0;
 }
