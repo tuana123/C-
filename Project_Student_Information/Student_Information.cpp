@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#define Size_array 100
 using namespace std;
 
 struct Student
@@ -9,15 +10,15 @@ struct Student
 	float score;
 };
 
+Student *p = new Student[Size_array];
 int n;
-Student *array_student = new Student[n];
 
+void Menu();
+int Check_ID(int id,int size);
 void Input_Student();
-int Check_ID(int id);
 void Display();
 void SaveToFile();
 void LoadFromFile();
-void Menu();
 
 void Menu()
 {
@@ -33,30 +34,26 @@ void Menu()
 	{
 		case 1: 
 			Input_Student();
-			system("clrs");
 			break;
 		case 2:
 			Display();
-			system("clrs");
 			break;
 		case 3:
 			SaveToFile();
-			system("clrs");
 			break;
 		case 4:
 			LoadFromFile();
-			system("clrs");
 			break;
 		default: 
 			system("pause");
 	}
 }
 
-int Check_ID(int id)
+int Check_ID(int id,int size)
 {
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < size; i++)
 	{
-		if (id == array_student[i].id)
+		if (id == (p+i)->id)
 		{
 			return 0;
 		}
@@ -66,28 +63,45 @@ int Check_ID(int id)
 
 void Input_Student()
 {
-	int id;
+	int id_student;
+	int number;
 	cout << "--------Input Student--------" << endl;
-	for (int i = 0; i < n; i++)
+	cout << "Enter The Number Of  Student: ";
+	cin >> number;
+	for (int i = n; i < n + number; i++)
 	{
 		cout << "Enter Student ID: ";
-		t: cin >> id;
+		t1: cin >> id_student;
 		cin.ignore();
-		if (Check_ID(id))
+		if (Check_ID(id_student,i))
 		{
-			array_student[i].id = id;
+			(p+i)->id = id_student;
 			cout << "Enter Student Name: ";
-			getline(cin, array_student[i].name);
+			getline(cin, (p+i)->name);
 			cout << "Enter Student Score: ";
-			cin >> array_student[i].score;
+			float sc;
+			t2: cin >> sc;
+			if (sc < 0 || sc >10)
+			{
+				cout << "Score From 0 to 10";
+				cout << "Please Enter Again: ";
+				goto t2;
+			}
+			else
+			{
+				(p+i)->score = sc;
+			}
 		}
 		else
 		{
 			cout << "Duplication Student ID!!!" << endl;
 			cout << "Please Enter Again: ";
-			goto t;
+			goto t1;
 		}
+		cout << "---------------------------------" << endl;
 	}
+	n = n + number;
+	Menu();
 }
 
 void Display()
@@ -107,6 +121,7 @@ void LoadFromFile()
 
 int main()
 {
-	Menu();
+		Menu();
+	
 	return 0;
 }
