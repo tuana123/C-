@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #define Size_array 100
 using namespace std;
 
@@ -17,18 +18,20 @@ void Menu();
 int Check_ID(int id,int size);
 void Input_Student();
 void Display();
-void SaveToFile();
-void LoadFromFile();
+void SaveToFile(string filename);
+void LoadFromFile(string fileName);
+void Replace(string &str, char to, char by);
 
 void Menu()
 {
 	int c;
-	cout << "------------MENU------------" << endl ;
+	cout << "------------------MENU------------------" << endl ;
 	cout << "    1. Input" << endl;
 	cout << "    2. Display" << endl;
 	cout << "    3. Save to file" << endl;
 	cout << "    4. Load from file" << endl;
 	cout << "    Press Something Key To Exit" << endl;
+	cout << "----------Press Your Chosse-------------" << endl;
 	cin >> c;
 	switch (c)
 	{
@@ -39,10 +42,10 @@ void Menu()
 			Display();
 			break;
 		case 3:
-			SaveToFile();
+			SaveToFile("studen.txt");
 			break;
 		case 4:
-			LoadFromFile();
+			LoadFromFile("student.txt");
 			break;
 		default: 
 			system("pause");
@@ -116,15 +119,51 @@ void Display()
 	Menu();
 }
 
-void SaveToFile()
+void SaveToFile(string filename)
 {
+	ofstream outFile;
+	outFile.open(filename);
+	if (outFile.is_open())
+	{
+		//save number
+		outFile << n << endl;
+		for (int i = 0; i < n; i++)
+		{
+			int id = p[i].id;
+			string name = p[i].name;
+			float score = p[i].score;
+			Replace(name, ' ', '_');
+			outFile << id << " " << name << " " << score << endl;
+		}
 
+		cout << "Save to " << filename << endl;
+
+		outFile.close();
+	}
+	else
+	{
+		cout << "ERROR" << endl;
+	}
+	Menu();
 }
 
-void LoadFromFile()
+void LoadFromFile(string fileName)
 {
-
+	
 }
+
+
+void Replace(string &str, char to, char by)
+{
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (str.at(i) == to)
+		{
+			str.at(i) = by;
+		}
+	}
+}
+
 
 int main()
 {
