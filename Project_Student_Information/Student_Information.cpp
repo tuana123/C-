@@ -12,8 +12,45 @@ struct Student
 int n;
 Student *array_student = new Student[n];
 
-void Input(){}
-int Check_ID(int id){}
+void Input_Student();
+int Check_ID(int id);
+void Display();
+void SaveToFile();
+void LoadFromFile();
+void Menu();
+
+void Menu()
+{
+	int c;
+	cout << "------------MENU------------" << endl ;
+	cout << "    1. Input" << endl;
+	cout << "    2. Display" << endl;
+	cout << "    3. Save to file" << endl;
+	cout << "    4. Load from file" << endl;
+	cout << "    Press Something Key To Exit" << endl;
+	cin >> c;
+	switch (c)
+	{
+		case 1: 
+			Input_Student();
+			system("clrs");
+			break;
+		case 2:
+			Display();
+			system("clrs");
+			break;
+		case 3:
+			SaveToFile();
+			system("clrs");
+			break;
+		case 4:
+			LoadFromFile();
+			system("clrs");
+			break;
+		default: 
+			system("pause");
+	}
+}
 
 int Check_ID(int id)
 {
@@ -27,14 +64,15 @@ int Check_ID(int id)
 	return 1;
 }
 
-void Input()
+void Input_Student()
 {
 	int id;
+	cout << "--------Input Student--------" << endl;
 	for (int i = 0; i < n; i++)
 	{
 		cout << "Enter Student ID: ";
 		t: cin >> id;
-		cin.ignore;
+		cin.ignore();
 		if (Check_ID(id))
 		{
 			array_student[i].id = id;
@@ -52,7 +90,23 @@ void Input()
 	}
 }
 
-int main()
+void Display()
 {
 
+}
+
+void SaveToFile()
+{
+
+}
+
+void LoadFromFile()
+{
+
+}
+
+int main()
+{
+	Menu();
+	return 0;
 }
