@@ -43,7 +43,7 @@ void Menu()
 			Display();
 			break;
 		case 3:
-			SaveToFile("studen.txt");
+			SaveToFile("student.txt");
 			break;
 		case 4:
 			LoadFromFile("student.txt");
@@ -151,7 +151,7 @@ void SaveToFile(string filename)
 void LoadFromFile(string fileName)
 {
 	ifstream inFile;
-	inFile.open("student");
+	inFile.open(fileName);
 
 	if (inFile.is_open())
 	{
@@ -164,6 +164,7 @@ void LoadFromFile(string fileName)
 			inFile >> p[i].score;
 			Replace(p[i].name, '_', ' ');
 		}
+		cout << "Load to " << fileName << endl;
 		inFile.close();
 	}
 	else
