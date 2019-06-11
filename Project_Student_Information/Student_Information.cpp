@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 #define Size_array 100
 using namespace std;
 
@@ -111,10 +112,10 @@ void Input_Student()
 void Display()
 {
 	system("cls");
-	cout << " ID\t" << "Name\t\t\t" << "Score" << endl;
+	cout << " ID" << setw(20) << "Name" << setw(20) << "Score" << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << " " << (p + i)->id << "\t" << (p + i)->name << "\t\t\t" << (p + i)->score << endl;
+		cout << " " << (p + i)->id << setw(20) << (p + i)->name << setw(20) << (p + i)->score << endl;
 	}
 	Menu();
 }
@@ -149,9 +150,28 @@ void SaveToFile(string filename)
 
 void LoadFromFile(string fileName)
 {
-	
-}
+	ifstream inFile;
+	inFile.open("student");
 
+	if (inFile.is_open())
+	{
+		inFile >> n;
+
+		for (int i = 0; i < n; i++)
+		{
+			inFile >> p[i].id;
+			inFile >> p[i].name;
+			inFile >> p[i].score;
+			Replace(p[i].name, '_', ' ');
+		}
+		inFile.close();
+	}
+	else
+	{
+		cout << "LOAD ERROR" << endl;
+	}
+	Menu();
+}
 
 void Replace(string &str, char to, char by)
 {
