@@ -110,6 +110,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FluVirus.h" />
+    <ClInclude Include="MyVirus.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FluVirus.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyVirus.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
