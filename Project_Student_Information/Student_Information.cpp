@@ -112,10 +112,12 @@ void Input_Student()
 void Display()
 {
 	system("cls");
-	cout << " ID" << setw(20) << "Name" << setw(20) << "Score" << endl;
+	cout << "ID" << setw(20) << "Name" << setw(20) << "Score" << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << " " << (p + i)->id << setw(20) << (p + i)->name << setw(20) << (p + i)->score << endl;
+		cout << (p + i)->id ;
+		cout << setw(20) << left << (p + i)->name;
+		cout << setw(20) << right << (p + i)->score << endl;
 	}
 	Menu();
 }
@@ -185,10 +187,8 @@ void Replace(string &str, char to, char by)
 	}
 }
 
-
 int main()
 {
 	Menu();
-	
 	return 0;
 }
