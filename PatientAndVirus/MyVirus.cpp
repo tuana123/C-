@@ -57,12 +57,8 @@ void MyVirus::LoadADNIformation()
 	}
 }
 
-int MyVirus::Reduce_Resistance(int medicine_resistance)
+void MyVirus::Reduce_Resistance(int medicine_resistance)
 {
-	if (this->m_resistance - medicine_resistance <= 0)
-	{
-		return 0;
-	}
-	return 1;
+	this->m_resistance = this->m_resistance - medicine_resistance;
 }
 

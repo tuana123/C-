@@ -13,7 +13,7 @@ public:
 	void Setm_resitance(int);
 	int Getm_resitance();
 	void LoadADNIformation();
-	int Reduce_Resistance(int);
+	void Reduce_Resistance(int);
 	virtual void DoBorn() = 0;
 	virtual void DoDie() = 0;
 	virtual void DoClone() = 0;
