@@ -66,7 +66,3 @@ int MyVirus::Reduce_Resistance(int medicine_resistance)
 	return 1;
 }
 
-void MyVirus::InitResistance(){}
-void MyVirus::DoBorn(){}
-void MyVirus::DoDie(){}
-std::list<MyVirus*> MyVirus::DoClone(){}

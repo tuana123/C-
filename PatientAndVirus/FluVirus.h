@@ -8,8 +8,8 @@ public:
 	FluVirus();
 	~FluVirus();
 	void DoBorn() override;
-	virtual void DoDie();
-	virtual std::list<MyVirus*> DoClone();
-	virtual void InitResistance();
+	void DoDie() override;
+	void DoClone() override;
+	void InitResistance() override;
 };
 

@@ -14,9 +14,9 @@ public:
 	int Getm_resitance();
 	void LoadADNIformation();
 	int Reduce_Resistance(int);
-	virtual void DoBorn();
-	virtual void DoDie();
-	virtual std::list<MyVirus*> DoClone();
-	virtual void InitResistance();
+	virtual void DoBorn() = 0;
+	virtual void DoDie() = 0;
+	virtual void DoClone() = 0;
+	virtual void InitResistance() = 0;
 };
 
