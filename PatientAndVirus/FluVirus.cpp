@@ -3,7 +3,8 @@
 
 
 FluVirus::FluVirus()
-{
+{	
+	this->DoBorn();
 	this->InitResistance();
 }
 
@@ -19,11 +20,11 @@ void FluVirus::DoBorn()
 	if (color == 1)
 	{
 		this->m_color = 0x0000ff;
-		std::cout << "Virus Blue was Born";
+		std::cout << "Virus Flu Blue was Born";
 	}
 	else
 	{
-		std::cout << "Virus Blue was Red";
+		std::cout << "Virus Flu Red was Born";
 		this->m_color = 0xff0000;
 	}
 	
@@ -41,5 +42,12 @@ void FluVirus::DoClone()
 
 void FluVirus::InitResistance()
 {
-	this->m_resistance = rand() % (30 - 10 + 1) + 10;
+	if (this->m_color == 0x0000ff)
+	{
+		this->m_resistance = rand() % (15 - 10 + 1) + 10;
+	}
+	else
+	{
+		this->m_resistance = rand() % (20 - 10 + 1) + 10;
+	}
 }
