@@ -9,7 +9,7 @@ FluVirus::FluVirus()
 
 FluVirus::~FluVirus()
 {
-	DoDie();
+	this->DoDie();
 }
 
 void FluVirus::DoBorn()
@@ -21,8 +21,12 @@ void FluVirus::DoBorn()
 		this->m_color = 0x0000ff;
 		std::cout << "Virus Blue was Born";
 	}
-	std::cout << "Virus Blue was Red";
-	this->m_color = 0xff0000;
+	else
+	{
+		std::cout << "Virus Blue was Red";
+		this->m_color = 0xff0000;
+	}
+	
 }
 
 void FluVirus::DoDie()

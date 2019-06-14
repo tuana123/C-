@@ -61,4 +61,3 @@ void MyVirus::Reduce_Resistance(int medicine_resistance)
 {
 	this->m_resistance = this->m_resistance - medicine_resistance;
 }
-
