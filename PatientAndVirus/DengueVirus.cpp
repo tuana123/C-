@@ -4,6 +4,8 @@
 
 DengueVirus::DengueVirus()
 {
+	this->DoBorn();
+	this->InitResistance();
 }
 
 
@@ -49,4 +51,29 @@ void DengueVirus::DoBorn()
 	}
 	}
 	
+}
+
+void DengueVirus::DoDie()
+{
+}
+
+void DengueVirus::DoClone()
+{
+}
+
+void DengueVirus::InitResistance()
+{
+	std::string str = this->m_protein;
+	if (str == "NS3")
+	{
+		this->m_resistance = rand() % (10 - 1 + 1) + 1;
+	}
+	else if(str == "NS5")
+	{
+		this->m_resistance = rand() % (20 - 11 + 1) + 11;
+	}
+	else
+	{
+		this->m_resistance = rand() % (30 - 21 + 1) + 21;
+	}
 }

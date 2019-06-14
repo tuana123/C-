@@ -8,5 +8,8 @@ public:
 	DengueVirus();
 	~DengueVirus();
 	void DoBorn() override;
+	void DoDie() override;
+	void DoClone() override;
+	void InitResistance() override;
 };
 
