@@ -57,8 +57,13 @@ void DengueVirus::DoDie()
 {
 }
 
-void DengueVirus::DoClone()
+MyVirus* DengueVirus::DoClone()
 {
+	DengueVirus *p;
+	p->m_dna = this->m_dna;
+//	p->m_protein = this->m_protein;
+	p->m_resistance = this->m_resistance;
+	return p;
 }
 
 void DengueVirus::InitResistance()
