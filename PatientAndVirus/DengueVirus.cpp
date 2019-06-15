@@ -58,6 +58,7 @@ void DengueVirus::DoDie()
 {
 	delete[] this->m_dna;
 	delete[]this->m_protein;
+	this->m_resistance = 0;
 }
 
 MyVirus* DengueVirus::DoClone()
