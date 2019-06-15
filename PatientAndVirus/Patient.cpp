@@ -70,7 +70,7 @@ void Patient::TakeMedicine(int medicine_resistance)
 	{
 		MyVirus *p = *position;
 		std::cout << "List Virus!" << std::endl;
-		p->GetNameVirus;
+		p->GetNameVirus();
 		std::cout << std::endl;
 	}
 	// Check Patient Die

@@ -40,10 +40,11 @@ std::list<MyVirus*> FluVirus::DoClone()
 {
 	std::list<MyVirus*> listVirus;
 	FluVirus *p;
-	p->m_color = this->m_color;
+	p = this;
+	/*p->m_color = this->m_color;
 	p->m_dna = this->m_dna;
 	p->m_resistance = this->m_resistance;
-	listVirus.push_back(p);
+	listVirus.push_back(p);*/
 	return listVirus;
 }
 
