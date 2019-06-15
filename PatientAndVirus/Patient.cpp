@@ -80,3 +80,8 @@ void Patient::DoDie()
 	this->m_resistance = 0;
 	this->m_listVirus.clear();
 }
+
+int Patient::GetState()
+{
+	return this->m_state;
+}
