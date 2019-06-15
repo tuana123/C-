@@ -20,11 +20,11 @@ void FluVirus::DoBorn()
 	if (color == 1)
 	{
 		this->m_color = 0x0000ff;
-		std::cout << "Virus Flu Blue was Born";
+//		std::cout << "Virus Flu Blue was Born";
 	}
 	else
 	{
-		std::cout << "Virus Flu Red was Born";
+	//	std::cout << "Virus Flu Red was Born";
 		this->m_color = 0xff0000;
 	}
 	
@@ -62,5 +62,6 @@ void FluVirus::InitResistance()
 
 void FluVirus::GetNameVirus()
 {
-	std::cout << "Flu Virus " << this->m_color;
+	std::cout << "\nFlu Virus " << this->m_color;
+	std::cout << "\nResistance " << this->m_resistance;
 }

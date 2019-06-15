@@ -96,5 +96,6 @@ void DengueVirus::InitResistance()
 
 void DengueVirus::GetNameVirus()
 {
-	std::cout << "Dengue Virus " << this->m_protein;
+	std::cout << "\nDengue Virus " << this->m_protein;
+	std::cout << "\nResistance " << this->m_resistance;
 }

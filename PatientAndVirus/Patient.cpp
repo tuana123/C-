@@ -65,15 +65,16 @@ void Patient::TakeMedicine(int medicine_resistance)
 			m_listVirus.insert(position, list.begin(), list.end());
 		}
 	}
+	std::cout << "List Virus!" << std::endl;
 	// Print list virus
 	for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
 	{
-		MyVirus *p = *position;
-		std::cout << "List Virus!" << std::endl;
+		MyVirus *p = *position;		
 		p->GetNameVirus();
 		std::cout << std::endl;
 	}
 	// Check Patient Die
+	std::cout << "\nNumber Virus: " << m_listVirus.size();
 	if (this->m_resistance < this->m_listVirus.size())
 	{
 		this->DoDie();
