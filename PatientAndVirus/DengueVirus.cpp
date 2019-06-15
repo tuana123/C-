@@ -11,6 +11,7 @@ DengueVirus::DengueVirus()
 
 DengueVirus::~DengueVirus()
 {
+	this->DoDie();
 }
 
 void DengueVirus::DoBorn()
@@ -55,6 +56,8 @@ void DengueVirus::DoBorn()
 
 void DengueVirus::DoDie()
 {
+	delete[] this->m_dna;
+	delete[]this->m_protein;
 }
 
 MyVirus* DengueVirus::DoClone()
