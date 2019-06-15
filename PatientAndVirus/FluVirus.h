@@ -9,7 +9,7 @@ public:
 	~FluVirus();
 	void DoBorn() override;
 	void DoDie() override;
-	void DoClone() override;
+	MyVirus* DoClone() override;
 	void InitResistance() override;
 };
 
