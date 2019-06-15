@@ -40,8 +40,36 @@ void Patient::DoStart()
 	}
 }
 
-void Patient::TakeMedicine()
+void Patient::TakeMedicine(int medicine_resistance)
 {
-//	int medicine_resistance = rand() % (60 - 1 + 1) + 1;
-//	for (int i=0;i<)
+	std::list<MyVirus*>::iterator position;
+	// Reduce resistance of virus
+	for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
+	{
+		MyVirus *p = *position;
+		p->Reduce_Resistance(medicine_resistance);
+		if (p->Getm_resitance() <= 0)
+		{
+			p->DoDie();
+			m_listVirus.erase(position);
+		}
+		else
+		{
+			std::list<MyVirus*> list = p->DoClone();
+			m_listVirus.insert(position, list.begin(), list.end());
+		}
+	}
+	// Print list virus
+	for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
+	{
+		MyVirus *p = *position;
+		std::cout << "List Virus!" << std::endl;
+		p->GetNameVirus;
+		std::cout << std::endl;
+	}
+	// Check Patient Die
+	if (this->m_resistance < this->m_listVirus.size())
+	{
+		this->DoDie();
+	}
 }
