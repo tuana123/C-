@@ -19,4 +19,5 @@ void main()
 			p->TakeMedicine(medicine_resistance);
 		}
 	}
+	system("pause");
 }

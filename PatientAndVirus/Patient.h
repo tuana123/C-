@@ -14,5 +14,6 @@ public:
 	void DoStart();
 	void TakeMedicine(int);
 	void DoDie();
+	int GetState();
 };
 

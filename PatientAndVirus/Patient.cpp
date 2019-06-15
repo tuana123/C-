@@ -27,15 +27,21 @@ void Patient::DoStart()
 		switch (n)
 		{
 		case 1:
-			FluVirus *flu = new FluVirus();
-			m_listVirus.push_front(flu);
+		{
+//			FluVirus flu = ;
+			m_listVirus.push_back(new FluVirus());
 			break;
+		}		
 		case 2:
-			DengueVirus *dengue = new DengueVirus();
-			m_listVirus.push_front(dengue);
+		{
+//			DengueVirus *dengue = new DengueVirus();
+			m_listVirus.push_back(new DengueVirus());
 			break;
+		}			
 		default:
+		{
 			break;
+		}			
 		}
 	}
 }
