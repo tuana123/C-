@@ -73,3 +73,10 @@ void Patient::TakeMedicine(int medicine_resistance)
 		this->DoDie();
 	}
 }
+
+void Patient::DoDie()
+{
+	this->m_state = 0;
+	this->m_resistance = 0;
+	this->m_listVirus.clear();
+}
