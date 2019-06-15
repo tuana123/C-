@@ -20,8 +20,8 @@ void Patient::InitResistance()
 void Patient::DoStart()
 {
 	this->m_state = 1;
-	std::list<MyVirus> m_virusList(rand() % (20 - 10 + 1) + 10);
-	for (int i = 0; i < m_listVirus.size(); i++)
+	int num_virus = (rand() % (20 - 10 + 1) + 10);
+	for (int i = 0; i < num_virus; i++)
 	{
 		int n = rand() % (2 - 1 + 1) + 1;
 		switch (n)
@@ -38,4 +38,10 @@ void Patient::DoStart()
 			break;
 		}
 	}
+}
+
+void Patient::TakeMedicine()
+{
+//	int medicine_resistance = rand() % (60 - 1 + 1) + 1;
+//	for (int i=0;i<)
 }
