@@ -61,8 +61,9 @@ void DengueVirus::DoDie()
 	this->m_resistance = 0;
 }
 
-MyVirus* DengueVirus::DoClone()
+std::list<MyVirus*> DengueVirus::DoClone()
 {
+	std::list<MyVirus*> listVirus;
 	DengueVirus *p;
 	p->m_dna = this->m_dna;
 	for (int i = 0; i < sizeof(this->m_protein); i++)
@@ -70,7 +71,9 @@ MyVirus* DengueVirus::DoClone()
 		p->m_protein[i] = this->m_protein[i];
 	}
 	p->m_resistance = this->m_resistance;
-	return p;
+	listVirus.push_back(p);
+	listVirus.push_back(p);
+	return listVirus;
 }
 
 void DengueVirus::InitResistance()

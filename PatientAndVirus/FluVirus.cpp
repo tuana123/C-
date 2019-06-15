@@ -36,13 +36,15 @@ void FluVirus::DoDie()
 	this->m_resistance = 0;
 }
 
-MyVirus* FluVirus::DoClone()
+std::list<MyVirus*> FluVirus::DoClone()
 {
+	std::list<MyVirus*> listVirus;
 	FluVirus *p;
 	p->m_color = this->m_color;
 	p->m_dna = this->m_dna;
 	p->m_resistance = this->m_resistance;
-	return p;
+	listVirus.push_back(p);
+	return listVirus;
 }
 
 void FluVirus::InitResistance()

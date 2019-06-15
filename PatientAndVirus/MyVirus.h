@@ -16,7 +16,7 @@ public:
 	void Reduce_Resistance(int);
 	virtual void DoBorn() = 0;
 	virtual void DoDie() = 0;
-	virtual MyVirus* DoClone() = 0;
+	virtual std::list<MyVirus*> DoClone() = 0;
 	virtual void InitResistance() = 0;
 };
 
