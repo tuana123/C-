@@ -61,7 +61,10 @@ MyVirus* DengueVirus::DoClone()
 {
 	DengueVirus *p;
 	p->m_dna = this->m_dna;
-//	p->m_protein = this->m_protein;
+	for (int i = 0; i < sizeof(this->m_protein); i++)
+	{
+		p->m_protein[i] = this->m_protein[i];
+	}
 	p->m_resistance = this->m_resistance;
 	return p;
 }

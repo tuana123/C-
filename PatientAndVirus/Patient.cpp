@@ -8,7 +8,6 @@ Patient::Patient()
 	this->DoStart();
 }
 
-
 Patient::~Patient()
 {
 }
