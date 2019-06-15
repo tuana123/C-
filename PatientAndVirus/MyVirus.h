@@ -18,5 +18,6 @@ public:
 	virtual void DoDie() = 0;
 	virtual std::list<MyVirus*> DoClone() = 0;
 	virtual void InitResistance() = 0;
+	virtual void GetNameVirus() = 0;
 };
 

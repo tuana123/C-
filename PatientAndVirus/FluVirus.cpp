@@ -58,3 +58,8 @@ void FluVirus::InitResistance()
 		this->m_resistance = rand() % (20 - 10 + 1) + 10;
 	}
 }
+
+void FluVirus::GetNameVirus()
+{
+	std::cout << "Flu Virus " << this->m_color;
+}

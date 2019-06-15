@@ -1,5 +1,6 @@
 #include "DengueVirus.h"
 #include <string>
+#include <iostream>
 
 
 DengueVirus::DengueVirus()
@@ -91,4 +92,9 @@ void DengueVirus::InitResistance()
 	{
 		this->m_resistance = rand() % (30 - 21 + 1) + 21;
 	}
+}
+
+void DengueVirus::GetNameVirus()
+{
+	std::cout << "Dengue Virus " << this->m_protein;
 }

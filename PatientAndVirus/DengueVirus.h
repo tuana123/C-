@@ -11,5 +11,6 @@ public:
 	void DoDie() override;
 	std::list<MyVirus*> DoClone() override;
 	void InitResistance() override;
+	void GetNameVirus() override;
 };
 
