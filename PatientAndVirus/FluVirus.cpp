@@ -1,6 +1,7 @@
 #include "FluVirus.h"
 #include <iostream>
-
+#include <iomanip>
+#include <string>
 
 FluVirus::FluVirus()
 {	
@@ -62,6 +63,14 @@ void FluVirus::InitResistance()
 
 void FluVirus::GetNameVirus()
 {
-	std::cout << "\nFlu Virus " << this->m_color;
-	std::cout << "\nResistance " << this->m_resistance;
+	std::string str;
+	if (this->m_color == 0x0000ff)
+	{
+		str = "Blue";
+	}
+	else
+	{
+		str = "Red";
+	}
+	std::cout << "\n" << str << std::setw(20) << std::right << this->m_resistance;
 }

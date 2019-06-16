@@ -1,6 +1,7 @@
 #include "Patient.h"
 #include "FluVirus.h"
 #include "DengueVirus.h"
+#include <iomanip>
 
 Patient::Patient()
 {
@@ -66,14 +67,6 @@ void Patient::TakeMedicine(int medicine_resistance)
 			++position;
 		}	
 	}
-	std::cout << "List Virus!" << std::endl;
-	// Print list virus
-	for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
-	{
-		MyVirus *p = *position;		
-		p->GetNameVirus();
-		std::cout << std::endl;
-	}
 	// Check Patient Die
 	std::cout << "\nNumber Virus: " << m_listVirus.size() << std::endl;
 	if (this->m_resistance < this->m_listVirus.size())
@@ -84,6 +77,17 @@ void Patient::TakeMedicine(int medicine_resistance)
 	{
 		std::cout << "Clear Virus In Patient." << std::endl;
 		this->m_state = 0;
+	}
+	else // Print list virus
+	{
+		std::cout << "List Virus!" << std::endl;
+		std::cout << "Name" << std::setw(20) << std::right << "Resistance";	
+		for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
+		{
+			MyVirus *p = *position;
+			p->GetNameVirus();
+			std::cout << std::endl;
+		}
 	}
 }
 

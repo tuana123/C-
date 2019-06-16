@@ -1,7 +1,7 @@
 #include "DengueVirus.h"
 #include <string>
 #include <iostream>
-
+#include <iomanip>
 
 DengueVirus::DengueVirus()
 {
@@ -96,6 +96,5 @@ void DengueVirus::InitResistance()
 
 void DengueVirus::GetNameVirus()
 {
-	std::cout << "\nDengue Virus " << this->m_protein;
-	std::cout << "\nResistance " << this->m_resistance;
+	std::cout << "\n" << this->m_protein << std::setw(20) << std::left << this->m_resistance;
 }
