@@ -75,10 +75,15 @@ void Patient::TakeMedicine(int medicine_resistance)
 		std::cout << std::endl;
 	}
 	// Check Patient Die
-	std::cout << "\nNumber Virus: " << m_listVirus.size();
+	std::cout << "\nNumber Virus: " << m_listVirus.size() << std::endl;
 	if (this->m_resistance < this->m_listVirus.size())
 	{
 		this->DoDie();
+	}
+	if (this->m_listVirus.empty())
+	{
+		std::cout << "Clear Virus In Patient." << std::endl;
+		this->m_state = 0;
 	}
 }
 
@@ -87,6 +92,7 @@ void Patient::DoDie()
 	this->m_state = 0;
 	this->m_resistance = 0;
 	this->m_listVirus.clear();
+	std::cout << "Patient Was Die." << std::endl;
 }
 
 int Patient::GetState()
