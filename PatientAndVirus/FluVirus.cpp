@@ -70,7 +70,7 @@ void FluVirus::GetNameVirus()
 	}
 	else
 	{
-		str = "Red";
+		str = "Red"; 
 	}
 	std::cout << "\n" << str << std::setw(20) << std::right << this->m_resistance;
 }
