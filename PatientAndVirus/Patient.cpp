@@ -91,12 +91,11 @@ void Patient::TakeMedicine(int medicine_resistance)
 	else // Print list virus
 	{
 		std::cout << "List Virus!" << std::endl;
-		std::cout << "Name" << std::setw(20) << std::right << "Resistance";	
+		std::cout << "Name" << std::setw(20) << std::right << "Resistance" << std::endl;	
 		for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
 		{
 			MyVirus *p = *position;
 			p->GetNameVirus();
-			std::cout << std::endl;
 		}
 	}
 }
