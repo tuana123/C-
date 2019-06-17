@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "Patient.h"
+#include "vld.h"
 using namespace std;
 void main()
 {
