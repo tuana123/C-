@@ -33,15 +33,23 @@ void FluVirus::DoBorn()
 
 void FluVirus::DoDie()
 {
-//	delete[] this->m_dna;
+	delete[] this->m_dna;
 	this->m_resistance = 0;
 }
 
 std::list<MyVirus*> FluVirus::DoClone()
 {
 	std::list<MyVirus*> listVirus;
-	FluVirus *p;
-	p = this;
+	FluVirus *p = new FluVirus();
+	p->m_color = this->m_color;
+	
+	std::string str = this->m_dna;
+	for (int i = 0; i < str.size(); i++)
+	{
+		p->m_dna[i] = str[i];
+	}
+	p->m_resistance = this->m_resistance;
+	listVirus.push_back(p);
 	/*p->m_color = this->m_color;
 	p->m_dna = this->m_dna;
 	p->m_resistance = this->m_resistance;

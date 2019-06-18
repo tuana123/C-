@@ -6,10 +6,8 @@ MyVirus::MyVirus()
 {
 }
 
-
 MyVirus::~MyVirus()
 {
-	delete[]this->m_dna;
 }
 
 MyVirus::MyVirus(const MyVirus *p)
@@ -49,7 +47,6 @@ void MyVirus::LoadADNIformation()
 		c[str.size()] = '\0';
 		this->m_dna = c;
 		infile.close();
-		delete c;
 	}
 	else
 	{
