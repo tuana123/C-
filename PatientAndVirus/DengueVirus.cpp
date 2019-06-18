@@ -14,6 +14,11 @@ DengueVirus::~DengueVirus()
 	this->DoDie();
 }
 
+DengueVirus::DengueVirus(DengueVirus *dengue)
+{
+	
+}
+
 void DengueVirus::DoBorn()
 {
 	this->LoadADNIformation();
@@ -57,23 +62,30 @@ void DengueVirus::DoBorn()
 void DengueVirus::DoDie()
 {
 	delete[] this->m_dna;
-	delete[]this->m_protein;
+	//delete[]this->m_protein;
 	this->m_resistance = 0;
 }
 
 std::list<MyVirus*> DengueVirus::DoClone()
 {
 	std::list<MyVirus*> listVirus;
-	DengueVirus *p;
-	p = this;
-	/*p->m_dna = this->m_dna;
+	DengueVirus *p1 = new DengueVirus();
+	DengueVirus *p2 = new DengueVirus();
+	std::string str = this->m_dna;
+	for (int i = 0; i < str.size(); i++)
+	{
+		p1->m_dna[i] = str[i];
+		p2->m_dna[i] = str[i];
+	}
 	for (int i = 0; i < sizeof(this->m_protein); i++)
 	{
-		p->m_protein[i] = this->m_protein[i];
+		p1->m_protein[i] = this->m_protein[i];
+		p2->m_protein[i] = this->m_protein[i];
 	}
-	p->m_resistance = this->m_resistance;*/
-	listVirus.push_back(p);
-	listVirus.push_back(p);
+	p1->m_resistance = this->m_resistance;
+	p2->m_resistance = this->m_resistance;
+	listVirus.push_back(p1);
+	listVirus.push_back(p2);
 	return listVirus;
 }
 

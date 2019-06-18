@@ -7,7 +7,7 @@ protected:
 	int m_resistance;
 public:
 	MyVirus();
-	~MyVirus();
+	virtual ~MyVirus();
 	MyVirus(const MyVirus *p);
 	void Setm_dna(char*);
 	void Setm_resitance(int);

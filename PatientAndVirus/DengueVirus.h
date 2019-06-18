@@ -7,6 +7,7 @@ private:
 public:
 	DengueVirus();
 	~DengueVirus();
+	DengueVirus(DengueVirus *);
 	void DoBorn() override;
 	void DoDie() override;
 	std::list<MyVirus*> DoClone() override;

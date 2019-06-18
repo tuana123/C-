@@ -9,7 +9,7 @@ private:
 	int m_state;
 public:
 	Patient();
-	~Patient();
+	virtual ~Patient();
 	void InitResistance();
 	void DoStart();
 	void TakeMedicine(int);

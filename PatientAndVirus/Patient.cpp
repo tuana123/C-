@@ -11,7 +11,7 @@ Patient::Patient()
 
 Patient::~Patient()
 {
-	//this->DoDie();
+	this->DoDie();
 }
 
 void Patient::InitResistance()
@@ -22,7 +22,7 @@ void Patient::InitResistance()
 void Patient::DoStart()
 {
 	this->m_state = 1;
-	int num_virus = (rand() % (20 - 10 + 1) + 10);
+	int num_virus = (rand() % (10 - 5 + 1) + 5);
 	for (int i = 0; i < num_virus; i++)
 	{
 		int n = rand() % (2 - 1 + 1) + 1;
@@ -30,14 +30,14 @@ void Patient::DoStart()
 		{
 		case 1:
 		{
-//			FluVirus flu = ;
-			m_listVirus.push_back(new FluVirus());
+			FluVirus *flu = new FluVirus();
+			m_listVirus.push_back(flu);
 			break;
 		}		
 		case 2:
 		{
-//			DengueVirus *dengue = new DengueVirus();
-			m_listVirus.push_back(new DengueVirus());
+			DengueVirus *dengue = new DengueVirus();
+			m_listVirus.push_back(dengue);
 			break;
 		}			
 		default:
@@ -66,7 +66,13 @@ void Patient::TakeMedicine(int medicine_resistance)
 				//p->DoDie();
 				MyVirus *p = *position;
 				position = m_listVirus.erase(position);
-				//delete p;
+				//m_listVirus.remove((*position));
+				if (p != nullptr)
+				{
+					delete p;
+					p = nullptr;
+					//(*position)->GetNameVirus();
+				}
 			}
 			else
 			{
@@ -85,17 +91,22 @@ void Patient::TakeMedicine(int medicine_resistance)
 
 		if (this->m_resistance < totalResistanceVirus)
 		{
-			this->DoDie();
+			this->m_state = 0;
+			std::cout << "Patient Was Die." << std::endl;
 		}
 		// Print list virus
+		else if (this->m_listVirus.empty())
+		{
+			std::cout << "Clear Virus In Patient." << std::endl;
+			this->m_state = 0;
+		}
 		else
 		{
 			std::cout << "List Virus!" << std::endl;
 			std::cout << "Name" << std::setw(20) << std::right << "Resistance" << std::endl;
-			for (position = this->m_listVirus.begin(); position != this->m_listVirus.end(); position++)
+			for (auto v: m_listVirus)
 			{
-				MyVirus *p = *position;
-				p->GetNameVirus();
+				v->GetNameVirus();
 			}
 		}		
 	}
@@ -103,8 +114,15 @@ void Patient::TakeMedicine(int medicine_resistance)
 
 void Patient::DoDie()
 {
-	this->m_state = 0;
-	std::cout << "Patient Was Die." << std::endl;
+	this->m_state = 0;	
+	if (!m_listVirus.empty())
+	{
+		for (auto v : m_listVirus)
+		{
+			delete v;
+		}
+	}
+	m_listVirus.clear();
 }
 
 int Patient::GetState()
